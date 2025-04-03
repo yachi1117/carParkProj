@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Parking Management System</h1>
+            <div class="user-info">
+                <span id="username"></span>
+                <button id="loginBtn" onclick="showLoginForm()">Login</button>
+                <button id="registerBtn" onclick="showRegisterForm()">Register</button>
+                <button id="logoutBtn" onclick="logout()" style="display: none;">Logout</button>
+            </div>
+        </header>
+
+        <div id="loginForm" class="auth-form">
+            <h2>User Login</h2>
+            <form onsubmit="login(event)">
+                <div class="form-group">
+                    <label for="loginUsername">Username:</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register Now</a></p>
+            </form>
+        </div>
+
+        <div id="registerForm" class="auth-form" style="display: none;">
+            <h2>User Registration</h2>
+            <form onsubmit="register(event)">
+                <div class="form-group">
+                    <label for="regUsername">Username:</label>
+                    <input type="text" id="regUsername" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password:</label>
+                    <input type="password" id="regPassword" required minlength="6">
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+                <p>Already have an account? <a href="#" onclick="showLoginForm()">Login Now</a></p>
+            </form>
+        </div>
+
+        <main>
+            <div id="parkingLotsSection" class="section">
+                <h2>Available Parking Lots</h2>
+                <div class="search-bar">
+                    <input type="text" id="searchLocation" placeholder="Search by location...">
+                    <button onclick="searchParkingLots()" class="btn-primary">Search</button>
+                </div>
+                <div id="parkingLotsList" class="list-container"></div>
+            </div>
+
+            <div id="myRecords" class="section" style="display: none;">
+                <h2>My Parking Records</h2>
+                <div id="recordsList" class="list-container"></div>
+            </div>
+
+            <div id="adminSection" class="section" style="display: none;">
+                <h2>Admin Dashboard</h2>
+                <div class="admin-controls">
+                    <button onclick="showAddParkingLotForm()" class="btn-primary">Add New Parking Lot</button>
+                    <button onclick="showAllRecords()" class="btn-secondary">View All Records</button>
+                </div>
+                <div id="adminParkingLotForm" style="display: none;">
+                    <h3>Add New Parking Lot</h3>
+                    <form onsubmit="addParkingLot(event)" class="form-group">
+                        <input type="text" id="lotName" placeholder="Parking Lot Name" required>
+                        <input type="text" id="lotLocation" placeholder="Location" required>
+                        <textarea id="lotDescription" placeholder="Description" required></textarea>
+                        <input type="number" id="lotCapacity" placeholder="Capacity" required min="1">
+                        <input type="number" id="lotFeeRate" placeholder="Hourly Rate" required min="0" step="0.01">
+                        <button type="submit" class="btn-primary">Add Parking Lot</button>
+                    </form>
+                </div>
+                <div id="allRecordsList" class="list-container"></div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Smart Parking Management System</p>
+    </footer>
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 
