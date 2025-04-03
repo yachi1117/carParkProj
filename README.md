@@ -2,6 +2,10 @@
 
 This is a parking management system built with FastAPI and Python(FastAPI) MySQL, html css JavaScript. It provides complete functionalities including user registration and login, parking lot query, vehicle entry and exit, and more.
 
+![Mainpage](https://github.com/yachi1117/carParkProj/blob/main/mainpage.png)
+
+![APIdoc](https://github.com/yachi1117/carParkProj/blob/main/api.png)
+
 ## Features
 
 - **User Management**
